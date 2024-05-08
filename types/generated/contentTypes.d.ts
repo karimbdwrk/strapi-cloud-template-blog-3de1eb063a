@@ -822,6 +822,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     isCompany: Attribute.Boolean & Attribute.DefaultTo<false>;
     avatar: Attribute.Media;
     isVerified: Attribute.Boolean & Attribute.DefaultTo<false>;
+    userInfo: Attribute.Component<'informations.user-info'>;
+    companyInfo: Attribute.Component<'informations.company-info'>;
+    CNI: Attribute.Component<'informations.cni'>;
+    SST: Attribute.Component<'informations.sst'>;
+    KBIS: Attribute.Component<'informations.kbis'>;
+    CQP: Attribute.Component<'informations.cqp'>;
+    ProCard: Attribute.Component<'informations.pro-card'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_informations_pro_cards",
+  "info": {
+    "displayName": "ProCard",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "doc": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

@@ -1,5 +1,20 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface InformationsCni extends Schema.Component {
+  collectionName: 'components_informations_cnis';
+  info: {
+    displayName: 'CNI';
+    icon: 'apps';
+  };
+  attributes: {
+    type: Attribute.Enumeration<
+      ['idCard', 'residenceCard', 'passport', 'drivingLicense']
+    >;
+    expirationDate: Attribute.Date;
+    doc: Attribute.Media;
+  };
+}
+
 export interface InformationsCompanyInfo extends Schema.Component {
   collectionName: 'components_informations_company_infos';
   info: {
@@ -9,6 +24,54 @@ export interface InformationsCompanyInfo extends Schema.Component {
   attributes: {
     name: Attribute.String;
     phone: Attribute.String;
+  };
+}
+
+export interface InformationsCqp extends Schema.Component {
+  collectionName: 'components_informations_cqps';
+  info: {
+    displayName: 'CQP';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsKbis extends Schema.Component {
+  collectionName: 'components_informations_kbis';
+  info: {
+    displayName: 'KBIS';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsProCard extends Schema.Component {
+  collectionName: 'components_informations_pro_cards';
+  info: {
+    displayName: 'ProCard';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsSst extends Schema.Component {
+  collectionName: 'components_informations_ssts';
+  info: {
+    displayName: 'SST';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media;
+    date: Attribute.Date;
   };
 }
 
@@ -95,7 +158,12 @@ export interface SharedSlider extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'informations.cni': InformationsCni;
       'informations.company-info': InformationsCompanyInfo;
+      'informations.cqp': InformationsCqp;
+      'informations.kbis': InformationsKbis;
+      'informations.pro-card': InformationsProCard;
+      'informations.sst': InformationsSst;
       'informations.user-info': InformationsUserInfo;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

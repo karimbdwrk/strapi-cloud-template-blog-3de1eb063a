@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_informations_ssts",
+  "info": {
+    "displayName": "SST",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "doc": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

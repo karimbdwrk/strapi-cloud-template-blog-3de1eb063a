@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_informations_cnis",
+  "info": {
+    "displayName": "CNI",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "idCard",
+        "residenceCard",
+        "passport",
+        "drivingLicense"
+      ]
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "doc": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

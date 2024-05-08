@@ -81,15 +81,51 @@
       "default": false
     },
     "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "isVerified": {
       "type": "boolean",
       "default": false
+    },
+    "userInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.user-info"
+    },
+    "companyInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.company-info"
+    },
+    "CNI": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.cni"
+    },
+    "SST": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.sst"
+    },
+    "KBIS": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.kbis"
+    },
+    "CQP": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.cqp"
+    },
+    "ProCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "informations.pro-card"
     }
   }
 }
