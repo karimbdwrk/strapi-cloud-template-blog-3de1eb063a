@@ -4,7 +4,8 @@
   "info": {
     "singularName": "area",
     "pluralName": "areas",
-    "displayName": "Area"
+    "displayName": "Area",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,6 +17,12 @@
     },
     "code": {
       "type": "string"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::department.department",
+      "mappedBy": "area"
     }
   }
 }

@@ -126,6 +126,36 @@
       "type": "component",
       "repeatable": false,
       "component": "informations.pro-card"
+    },
+    "departments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::department.department",
+      "mappedBy": "users"
+    },
+    "professions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::profession.profession",
+      "mappedBy": "candidates"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job",
+      "mappedBy": "company"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::job.job",
+      "mappedBy": "candidates"
+    },
+    "favorites": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::job.job",
+      "mappedBy": "wishes"
     }
   }
 }

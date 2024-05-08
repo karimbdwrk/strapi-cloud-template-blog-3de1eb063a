@@ -796,6 +796,31 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     KBIS: Attribute.Component<'informations.kbis'>;
     CQP: Attribute.Component<'informations.cqp'>;
     ProCard: Attribute.Component<'informations.pro-card'>;
+    departments: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::department.department'
+    >;
+    professions: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::profession.profession'
+    >;
+    offers: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::job.job'
+    >;
+    jobs: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::job.job'
+    >;
+    favorites: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::job.job'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -819,6 +844,7 @@ export interface ApiAreaArea extends Schema.CollectionType {
     singularName: 'area';
     pluralName: 'areas';
     displayName: 'Area';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -826,6 +852,11 @@ export interface ApiAreaArea extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     code: Attribute.String;
+    departments: Attribute.Relation<
+      'api::area.area',
+      'oneToMany',
+      'api::department.department'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
@@ -841,6 +872,7 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
     singularName: 'department';
     pluralName: 'departments';
     displayName: 'Department';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -848,6 +880,21 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     code: Attribute.String;
+    area: Attribute.Relation<
+      'api::department.department',
+      'manyToOne',
+      'api::area.area'
+    >;
+    jobs: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::job.job'
+    >;
+    users: Attribute.Relation<
+      'api::department.department',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -871,12 +918,18 @@ export interface ApiDivisionDivision extends Schema.CollectionType {
     singularName: 'division';
     pluralName: 'divisions';
     displayName: 'Division';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     title: Attribute.String;
+    professions: Attribute.Relation<
+      'api::division.division',
+      'oneToMany',
+      'api::profession.profession'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -933,6 +986,7 @@ export interface ApiJobJob extends Schema.CollectionType {
     singularName: 'job';
     pluralName: 'jobs';
     displayName: 'Job';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -955,6 +1009,36 @@ export interface ApiJobJob extends Schema.CollectionType {
       >;
     isArchived: Attribute.Boolean & Attribute.DefaultTo<false>;
     salary: Attribute.Integer;
+    department: Attribute.Relation<
+      'api::job.job',
+      'manyToOne',
+      'api::department.department'
+    >;
+    jobtype: Attribute.Relation<
+      'api::job.job',
+      'manyToOne',
+      'api::job-type.job-type'
+    >;
+    profession: Attribute.Relation<
+      'api::job.job',
+      'manyToOne',
+      'api::profession.profession'
+    >;
+    company: Attribute.Relation<
+      'api::job.job',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    candidates: Attribute.Relation<
+      'api::job.job',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    wishes: Attribute.Relation<
+      'api::job.job',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
@@ -970,6 +1054,7 @@ export interface ApiJobTypeJobType extends Schema.CollectionType {
     singularName: 'job-type';
     pluralName: 'job-types';
     displayName: 'JobType';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -977,6 +1062,11 @@ export interface ApiJobTypeJobType extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     code: Attribute.String;
+    jobs: Attribute.Relation<
+      'api::job-type.job-type',
+      'oneToMany',
+      'api::job.job'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1000,12 +1090,28 @@ export interface ApiProfessionProfession extends Schema.CollectionType {
     singularName: 'profession';
     pluralName: 'professions';
     displayName: 'Profession';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     title: Attribute.String;
+    division: Attribute.Relation<
+      'api::profession.profession',
+      'manyToOne',
+      'api::division.division'
+    >;
+    candidates: Attribute.Relation<
+      'api::profession.profession',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    jobs: Attribute.Relation<
+      'api::profession.profession',
+      'oneToMany',
+      'api::job.job'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

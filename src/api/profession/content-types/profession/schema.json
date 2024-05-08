@@ -4,7 +4,8 @@
   "info": {
     "singularName": "profession",
     "pluralName": "professions",
-    "displayName": "Profession"
+    "displayName": "Profession",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -13,6 +14,24 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "division": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::division.division",
+      "inversedBy": "professions"
+    },
+    "candidates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "professions"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job",
+      "mappedBy": "profession"
     }
   }
 }

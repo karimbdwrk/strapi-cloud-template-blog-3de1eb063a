@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job-type",
     "pluralName": "job-types",
-    "displayName": "JobType"
+    "displayName": "JobType",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,6 +17,12 @@
     },
     "code": {
       "type": "string"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job",
+      "mappedBy": "jobtype"
     }
   }
 }

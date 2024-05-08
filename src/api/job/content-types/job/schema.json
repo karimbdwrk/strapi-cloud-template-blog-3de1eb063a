@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job",
     "pluralName": "jobs",
-    "displayName": "Job"
+    "displayName": "Job",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -30,6 +31,42 @@
     },
     "salary": {
       "type": "integer"
+    },
+    "department": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::department.department",
+      "inversedBy": "jobs"
+    },
+    "jobtype": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job-type.job-type",
+      "inversedBy": "jobs"
+    },
+    "profession": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::profession.profession",
+      "inversedBy": "jobs"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "offers"
+    },
+    "candidates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "jobs"
+    },
+    "wishes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "favorites"
     }
   }
 }
