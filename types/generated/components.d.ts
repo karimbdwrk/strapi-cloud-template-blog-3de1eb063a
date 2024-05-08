@@ -1,5 +1,35 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface InformationsCompanyInfo extends Schema.Component {
+  collectionName: 'components_informations_company_infos';
+  info: {
+    displayName: 'companyInfo';
+    icon: 'alien';
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.String;
+  };
+}
+
+export interface InformationsUserInfo extends Schema.Component {
+  collectionName: 'components_informations_user_infos';
+  info: {
+    displayName: 'userInfo';
+    icon: 'alien';
+  };
+  attributes: {
+    firstname: Attribute.String;
+    lastname: Attribute.String;
+    birthday: Attribute.Date;
+    height: Attribute.Integer;
+    weight: Attribute.Integer;
+    phone: Attribute.String;
+    sports: Attribute.String;
+    vehicle: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +95,8 @@ export interface SharedSlider extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'informations.company-info': InformationsCompanyInfo;
+      'informations.user-info': InformationsUserInfo;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

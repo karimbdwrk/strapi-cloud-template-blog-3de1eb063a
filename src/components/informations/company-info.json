@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_informations_company_infos",
+  "info": {
+    "displayName": "companyInfo",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

@@ -819,6 +819,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
         }
       >;
     description: Attribute.Text;
+    isCompany: Attribute.Boolean & Attribute.DefaultTo<false>;
+    avatar: Attribute.Media;
+    isVerified: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

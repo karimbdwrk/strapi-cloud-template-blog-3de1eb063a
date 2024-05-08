@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_informations_user_infos",
+  "info": {
+    "displayName": "userInfo",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "weight": {
+      "type": "integer"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "sports": {
+      "type": "string"
+    },
+    "vehicle": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

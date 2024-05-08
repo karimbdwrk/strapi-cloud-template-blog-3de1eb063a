@@ -75,6 +75,21 @@
     },
     "description": {
       "type": "text"
+    },
+    "isCompany": {
+      "type": "boolean",
+      "default": false
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
