@@ -963,6 +963,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     favicon: Attribute.Media;
     siteDescription: Attribute.Text & Attribute.Required;
     defaultSeo: Attribute.Component<'shared.seo'>;
+    test: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

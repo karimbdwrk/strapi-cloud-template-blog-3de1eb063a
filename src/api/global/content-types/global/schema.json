@@ -34,6 +34,9 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "test": {
+      "type": "string"
     }
   }
 }
