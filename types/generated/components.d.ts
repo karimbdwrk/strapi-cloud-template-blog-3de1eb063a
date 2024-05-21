@@ -80,6 +80,7 @@ export interface InformationsUserInfo extends Schema.Component {
   info: {
     displayName: 'userInfo';
     icon: 'alien';
+    description: '';
   };
   attributes: {
     firstname: Attribute.String;
@@ -90,6 +91,7 @@ export interface InformationsUserInfo extends Schema.Component {
     phone: Attribute.String;
     sports: Attribute.String;
     vehicle: Attribute.Boolean & Attribute.DefaultTo<false>;
+    measurements: Attribute.Enumeration<['S', 'M', 'L', 'XL', 'XXL', 'XXXL']>;
   };
 }
 
