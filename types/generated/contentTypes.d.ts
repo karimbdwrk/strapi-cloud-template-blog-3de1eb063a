@@ -1130,6 +1130,35 @@ export interface ApiProfessionProfession extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubscriptionSubscription extends Schema.CollectionType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'Subscription';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1155,6 +1184,7 @@ declare module '@strapi/types' {
       'api::job.job': ApiJobJob;
       'api::job-type.job-type': ApiJobTypeJobType;
       'api::profession.profession': ApiProfessionProfession;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
 }
