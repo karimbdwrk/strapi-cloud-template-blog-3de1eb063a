@@ -1085,6 +1085,38 @@ export interface ApiJobTypeJobType extends Schema.CollectionType {
   };
 }
 
+export interface ApiMessageMessage extends Schema.CollectionType {
+  collectionName: 'messages';
+  info: {
+    singularName: 'message';
+    pluralName: 'messages';
+    displayName: 'Message';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    subject: Attribute.String;
+    content: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::message.message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::message.message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProfessionProfession extends Schema.CollectionType {
   collectionName: 'professions';
   info: {
@@ -1183,6 +1215,7 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::job.job': ApiJobJob;
       'api::job-type.job-type': ApiJobTypeJobType;
+      'api::message.message': ApiMessageMessage;
       'api::profession.profession': ApiProfessionProfession;
       'api::subscription.subscription': ApiSubscriptionSubscription;
     }
