@@ -44,8 +44,8 @@
       ]
     },
     "language": {
-      "type": "enumeration",
-      "enum": [
+      "type": "customField",
+      "options": [
         "French",
         "English",
         "Arabic",
@@ -61,7 +61,8 @@
         "Korean",
         "Creole",
         "Farsi"
-      ]
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }

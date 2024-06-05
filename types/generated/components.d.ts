@@ -92,25 +92,27 @@ export interface InformationsUserInfo extends Schema.Component {
     sports: Attribute.String;
     vehicle: Attribute.Boolean & Attribute.DefaultTo<false>;
     measurements: Attribute.Enumeration<['S', 'M', 'L', 'XL', 'XXL', 'XXXL']>;
-    language: Attribute.Enumeration<
-      [
-        'French',
-        'English',
-        'Arabic',
-        'Spanish',
-        'Portuguese',
-        'Italian',
-        'German',
-        'Serbian',
-        'Tabasaran',
-        'Russian',
-        'Chinese',
-        'Japanese',
-        'Korean',
-        'Creole',
-        'Farsi'
-      ]
-    >;
+    language: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'French',
+          'English',
+          'Arabic',
+          'Spanish',
+          'Portuguese',
+          'Italian',
+          'German',
+          'Serbian',
+          'Tabasaran',
+          'Russian',
+          'Chinese',
+          'Japanese',
+          'Korean',
+          'Creole',
+          'Farsi'
+        ]
+      >;
   };
 }
 
