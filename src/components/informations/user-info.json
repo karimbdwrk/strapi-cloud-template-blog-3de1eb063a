@@ -42,6 +42,26 @@
         "XXL",
         "XXXL"
       ]
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "French",
+        "English",
+        "Arabic",
+        "Spanish",
+        "Portuguese",
+        "Italian",
+        "German",
+        "Serbian",
+        "Tabasaran",
+        "Russian",
+        "Chinese",
+        "Japanese",
+        "Korean",
+        "Creole",
+        "Farsi"
+      ]
     }
   }
 }
