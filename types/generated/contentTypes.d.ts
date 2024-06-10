@@ -981,6 +981,28 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiJobJob extends Schema.CollectionType {
   collectionName: 'jobs';
   info: {
@@ -1213,6 +1235,7 @@ declare module '@strapi/types' {
       'api::department.department': ApiDepartmentDepartment;
       'api::division.division': ApiDivisionDivision;
       'api::global.global': ApiGlobalGlobal;
+      'api::home.home': ApiHomeHome;
       'api::job.job': ApiJobJob;
       'api::job-type.job-type': ApiJobTypeJobType;
       'api::message.message': ApiMessageMessage;
