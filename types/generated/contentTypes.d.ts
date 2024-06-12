@@ -996,6 +996,8 @@ export interface ApiHomeHome extends Schema.SingleType {
     title: Attribute.String;
     description: Attribute.RichText;
     Hero: Attribute.Component<'sections.hero'>;
+    Subhero: Attribute.Component<'sections.hero'>;
+    Newsletter: Attribute.Component<'sections.hero'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &

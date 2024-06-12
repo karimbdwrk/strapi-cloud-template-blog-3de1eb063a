@@ -22,6 +22,16 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.hero"
+    },
+    "Subhero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "Newsletter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
     }
   }
 }
