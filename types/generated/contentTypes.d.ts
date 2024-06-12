@@ -987,6 +987,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'Home';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -994,6 +995,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     description: Attribute.RichText;
+    Hero: Attribute.Component<'sections.hero'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &

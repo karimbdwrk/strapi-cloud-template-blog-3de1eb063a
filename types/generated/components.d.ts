@@ -116,6 +116,18 @@ export interface InformationsUserInfo extends Schema.Component {
   };
 }
 
+export interface SectionsHero extends Schema.Component {
+  collectionName: 'components_sections_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'apps';
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.RichText;
+  };
+}
+
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -188,6 +200,7 @@ declare module '@strapi/types' {
       'informations.pro-card': InformationsProCard;
       'informations.sst': InformationsSst;
       'informations.user-info': InformationsUserInfo;
+      'sections.hero': SectionsHero;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
