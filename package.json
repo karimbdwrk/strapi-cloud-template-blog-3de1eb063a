@@ -3,8 +3,8 @@
     "@strapi/plugin-cloud": "4.21.1",
     "@strapi/plugin-graphql": "^4.0.5",
     "@strapi/plugin-i18n": "4.21.1",
-    "@strapi/plugin-users-permissions": "4.21.1",
-    "@strapi/strapi": "4.21.1",
+    "@strapi/plugin-users-permissions": "^4.25.0",
+    "@strapi/strapi": "^4.25.0",
     "better-sqlite3": "8.6.0",
     "fs-extra": "^10.0.0",
     "lodash.set": "^4.3.2",
@@ -37,5 +37,8 @@
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.16.0"
+  }
 }

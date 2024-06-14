@@ -11,7 +11,7 @@ export interface InformationsCni extends Schema.Component {
       ['idCard', 'residenceCard', 'passport', 'drivingLicense']
     >;
     expirationDate: Attribute.Date;
-    doc: Attribute.Media;
+    doc: Attribute.Media<'images'>;
   };
 }
 
@@ -34,7 +34,7 @@ export interface InformationsCqp extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    doc: Attribute.Media;
+    doc: Attribute.Media<'images'>;
     date: Attribute.Date;
   };
 }
@@ -46,7 +46,7 @@ export interface InformationsKbis extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    doc: Attribute.Media;
+    doc: Attribute.Media<'images'>;
     date: Attribute.Date;
   };
 }
@@ -58,7 +58,7 @@ export interface InformationsProCard extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    doc: Attribute.Media;
+    doc: Attribute.Media<'images'>;
     date: Attribute.Date;
   };
 }
@@ -70,7 +70,7 @@ export interface InformationsSst extends Schema.Component {
     icon: 'apps';
   };
   attributes: {
-    doc: Attribute.Media;
+    doc: Attribute.Media<'images'>;
     date: Attribute.Date;
   };
 }
@@ -135,7 +135,7 @@ export interface SharedMedia extends Schema.Component {
     icon: 'file-video';
   };
   attributes: {
-    file: Attribute.Media;
+    file: Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
 
@@ -174,7 +174,7 @@ export interface SharedSeo extends Schema.Component {
   attributes: {
     metaTitle: Attribute.String & Attribute.Required;
     metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media;
+    shareImage: Attribute.Media<'images'>;
   };
 }
 
@@ -186,7 +186,7 @@ export interface SharedSlider extends Schema.Component {
     description: '';
   };
   attributes: {
-    files: Attribute.Media;
+    files: Attribute.Media<'images', true>;
   };
 }
 

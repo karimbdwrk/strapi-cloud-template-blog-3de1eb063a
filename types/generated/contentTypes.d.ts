@@ -787,7 +787,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       >;
     description: Attribute.Text;
     isCompany: Attribute.Boolean & Attribute.DefaultTo<false>;
-    avatar: Attribute.Media;
+    avatar: Attribute.Media<'images'>;
     isVerified: Attribute.Boolean & Attribute.DefaultTo<false>;
     userInfo: Attribute.Component<'informations.user-info'>;
     companyInfo: Attribute.Component<'informations.company-info'>;
@@ -960,7 +960,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
   attributes: {
     siteName: Attribute.String & Attribute.Required;
-    favicon: Attribute.Media;
+    favicon: Attribute.Media<'images' | 'files' | 'videos'>;
     siteDescription: Attribute.Text & Attribute.Required;
     defaultSeo: Attribute.Component<'shared.seo'>;
     test: Attribute.String;
