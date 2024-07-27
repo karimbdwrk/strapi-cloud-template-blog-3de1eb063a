@@ -20,10 +20,12 @@ export interface InformationsCompanyInfo extends Schema.Component {
   info: {
     displayName: 'companyInfo';
     icon: 'alien';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     phone: Attribute.String;
+    siret: Attribute.BigInteger;
   };
 }
 
