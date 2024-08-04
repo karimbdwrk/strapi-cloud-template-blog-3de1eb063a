@@ -1,79 +1,64 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface InformationsCni extends Schema.Component {
-  collectionName: 'components_informations_cnis';
+export interface SharedSlider extends Schema.Component {
+  collectionName: 'components_shared_sliders';
   info: {
-    displayName: 'CNI';
-    icon: 'apps';
-  };
-  attributes: {
-    type: Attribute.Enumeration<
-      ['idCard', 'residenceCard', 'passport', 'drivingLicense']
-    >;
-    expirationDate: Attribute.Date;
-    doc: Attribute.Media<'images'>;
-  };
-}
-
-export interface InformationsCompanyInfo extends Schema.Component {
-  collectionName: 'components_informations_company_infos';
-  info: {
-    displayName: 'companyInfo';
-    icon: 'alien';
+    displayName: 'Slider';
+    icon: 'address-book';
     description: '';
   };
   attributes: {
-    name: Attribute.String;
-    phone: Attribute.String;
-    siret: Attribute.BigInteger;
+    files: Attribute.Media<'images', true>;
   };
 }
 
-export interface InformationsCqp extends Schema.Component {
-  collectionName: 'components_informations_cqps';
+export interface SharedSeo extends Schema.Component {
+  collectionName: 'components_shared_seos';
   info: {
-    displayName: 'CQP';
-    icon: 'apps';
+    name: 'Seo';
+    icon: 'allergies';
+    displayName: 'Seo';
+    description: '';
   };
   attributes: {
-    doc: Attribute.Media<'images'>;
-    date: Attribute.Date;
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+    shareImage: Attribute.Media<'images'>;
   };
 }
 
-export interface InformationsKbis extends Schema.Component {
-  collectionName: 'components_informations_kbis';
+export interface SharedRichText extends Schema.Component {
+  collectionName: 'components_shared_rich_texts';
   info: {
-    displayName: 'KBIS';
-    icon: 'apps';
+    displayName: 'Rich text';
+    icon: 'align-justify';
+    description: '';
   };
   attributes: {
-    doc: Attribute.Media<'images'>;
-    date: Attribute.Date;
+    body: Attribute.RichText;
   };
 }
 
-export interface InformationsProCard extends Schema.Component {
-  collectionName: 'components_informations_pro_cards';
+export interface SharedQuote extends Schema.Component {
+  collectionName: 'components_shared_quotes';
   info: {
-    displayName: 'ProCard';
-    icon: 'apps';
+    displayName: 'Quote';
+    icon: 'indent';
   };
   attributes: {
-    doc: Attribute.Media<'images'>;
-    date: Attribute.Date;
+    title: Attribute.String;
+    body: Attribute.Text;
   };
 }
 
-export interface InformationsSst extends Schema.Component {
-  collectionName: 'components_informations_ssts';
+export interface SharedMedia extends Schema.Component {
+  collectionName: 'components_shared_media';
   info: {
-    displayName: 'SST';
-    icon: 'apps';
+    displayName: 'Media';
+    icon: 'file-video';
   };
   attributes: {
-    doc: Attribute.Media<'images'>;
-    date: Attribute.Date;
+    file: Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
 
@@ -118,6 +103,83 @@ export interface InformationsUserInfo extends Schema.Component {
   };
 }
 
+export interface InformationsSst extends Schema.Component {
+  collectionName: 'components_informations_ssts';
+  info: {
+    displayName: 'SST';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media<'images'>;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsProCard extends Schema.Component {
+  collectionName: 'components_informations_pro_cards';
+  info: {
+    displayName: 'ProCard';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media<'images'>;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsKbis extends Schema.Component {
+  collectionName: 'components_informations_kbis';
+  info: {
+    displayName: 'KBIS';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media<'images'>;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsCqp extends Schema.Component {
+  collectionName: 'components_informations_cqps';
+  info: {
+    displayName: 'CQP';
+    icon: 'apps';
+  };
+  attributes: {
+    doc: Attribute.Media<'images'>;
+    date: Attribute.Date;
+  };
+}
+
+export interface InformationsCompanyInfo extends Schema.Component {
+  collectionName: 'components_informations_company_infos';
+  info: {
+    displayName: 'companyInfo';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.String;
+    siret: Attribute.BigInteger;
+  };
+}
+
+export interface InformationsCni extends Schema.Component {
+  collectionName: 'components_informations_cnis';
+  info: {
+    displayName: 'CNI';
+    icon: 'apps';
+  };
+  attributes: {
+    type: Attribute.Enumeration<
+      ['idCard', 'residenceCard', 'passport', 'drivingLicense']
+    >;
+    expirationDate: Attribute.Date;
+    doc: Attribute.Media<'images'>;
+  };
+}
+
 export interface SectionsHero extends Schema.Component {
   collectionName: 'components_sections_heroes';
   info: {
@@ -130,84 +192,22 @@ export interface SectionsHero extends Schema.Component {
   };
 }
 
-export interface SharedMedia extends Schema.Component {
-  collectionName: 'components_shared_media';
-  info: {
-    displayName: 'Media';
-    icon: 'file-video';
-  };
-  attributes: {
-    file: Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface SharedQuote extends Schema.Component {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    title: Attribute.String;
-    body: Attribute.Text;
-  };
-}
-
-export interface SharedRichText extends Schema.Component {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
-  };
-  attributes: {
-    body: Attribute.RichText;
-  };
-}
-
-export interface SharedSeo extends Schema.Component {
-  collectionName: 'components_shared_seos';
-  info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedSlider extends Schema.Component {
-  collectionName: 'components_shared_sliders';
-  info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
-  };
-  attributes: {
-    files: Attribute.Media<'images', true>;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'informations.cni': InformationsCni;
-      'informations.company-info': InformationsCompanyInfo;
-      'informations.cqp': InformationsCqp;
-      'informations.kbis': InformationsKbis;
-      'informations.pro-card': InformationsProCard;
-      'informations.sst': InformationsSst;
-      'informations.user-info': InformationsUserInfo;
-      'sections.hero': SectionsHero;
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.seo': SharedSeo;
+      'shared.rich-text': SharedRichText;
+      'shared.quote': SharedQuote;
+      'shared.media': SharedMedia;
+      'informations.user-info': InformationsUserInfo;
+      'informations.sst': InformationsSst;
+      'informations.pro-card': InformationsProCard;
+      'informations.kbis': InformationsKbis;
+      'informations.cqp': InformationsCqp;
+      'informations.company-info': InformationsCompanyInfo;
+      'informations.cni': InformationsCni;
+      'sections.hero': SectionsHero;
     }
   }
 }
