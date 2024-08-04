@@ -1111,6 +1111,36 @@ export interface ApiJobTypeJobType extends Schema.CollectionType {
   };
 }
 
+export interface ApiLegalLegal extends Schema.SingleType {
+  collectionName: 'legals';
+  info: {
+    singularName: 'legal';
+    pluralName: 'legals';
+    displayName: 'Legal';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::legal.legal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::legal.legal',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMessageMessage extends Schema.CollectionType {
   collectionName: 'messages';
   info: {
@@ -1242,6 +1272,7 @@ declare module '@strapi/types' {
       'api::home.home': ApiHomeHome;
       'api::job.job': ApiJobJob;
       'api::job-type.job-type': ApiJobTypeJobType;
+      'api::legal.legal': ApiLegalLegal;
       'api::message.message': ApiMessageMessage;
       'api::profession.profession': ApiProfessionProfession;
       'api::subscription.subscription': ApiSubscriptionSubscription;
