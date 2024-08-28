@@ -1173,6 +1173,36 @@ export interface ApiMessageMessage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrivacyPrivacy extends Schema.SingleType {
+  collectionName: 'privacies';
+  info: {
+    singularName: 'privacy';
+    pluralName: 'privacies';
+    displayName: 'Privacy';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProfessionProfession extends Schema.CollectionType {
   collectionName: 'professions';
   info: {
@@ -1214,6 +1244,28 @@ export interface ApiProfessionProfession extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRgpdRgpd extends Schema.SingleType {
+  collectionName: 'rgpds';
+  info: {
+    singularName: 'rgpd';
+    pluralName: 'rgpds';
+    displayName: 'RGPD';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    content: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::rgpd.rgpd', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::rgpd.rgpd', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1274,7 +1326,9 @@ declare module '@strapi/types' {
       'api::job-type.job-type': ApiJobTypeJobType;
       'api::legal.legal': ApiLegalLegal;
       'api::message.message': ApiMessageMessage;
+      'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::profession.profession': ApiProfessionProfession;
+      'api::rgpd.rgpd': ApiRgpdRgpd;
       'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
