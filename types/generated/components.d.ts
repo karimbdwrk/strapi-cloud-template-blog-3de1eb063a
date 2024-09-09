@@ -62,6 +62,18 @@ export interface SharedMedia extends Schema.Component {
   };
 }
 
+export interface SectionsHero extends Schema.Component {
+  collectionName: 'components_sections_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'apps';
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.RichText;
+  };
+}
+
 export interface InformationsUserInfo extends Schema.Component {
   collectionName: 'components_informations_user_infos';
   info: {
@@ -180,18 +192,6 @@ export interface InformationsCni extends Schema.Component {
   };
 }
 
-export interface SectionsHero extends Schema.Component {
-  collectionName: 'components_sections_heroes';
-  info: {
-    displayName: 'Hero';
-    icon: 'apps';
-  };
-  attributes: {
-    title: Attribute.String;
-    subtitle: Attribute.RichText;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -200,6 +200,7 @@ declare module '@strapi/types' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
+      'sections.hero': SectionsHero;
       'informations.user-info': InformationsUserInfo;
       'informations.sst': InformationsSst;
       'informations.pro-card': InformationsProCard;
@@ -207,7 +208,6 @@ declare module '@strapi/types' {
       'informations.cqp': InformationsCqp;
       'informations.company-info': InformationsCompanyInfo;
       'informations.cni': InformationsCni;
-      'sections.hero': SectionsHero;
     }
   }
 }
