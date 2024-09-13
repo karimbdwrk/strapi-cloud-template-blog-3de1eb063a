@@ -1173,6 +1173,36 @@ export interface ApiMessageMessage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPartnerPartner extends Schema.SingleType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partner';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Attribute.String;
+    Logo: Attribute.Component<'components.logo', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPrivacyPrivacy extends Schema.SingleType {
   collectionName: 'privacies';
   info: {
@@ -1326,6 +1356,7 @@ declare module '@strapi/types' {
       'api::job-type.job-type': ApiJobTypeJobType;
       'api::legal.legal': ApiLegalLegal;
       'api::message.message': ApiMessageMessage;
+      'api::partner.partner': ApiPartnerPartner;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::profession.profession': ApiProfessionProfession;
       'api::rgpd.rgpd': ApiRgpdRgpd;

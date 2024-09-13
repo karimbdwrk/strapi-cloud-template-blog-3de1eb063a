@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "partners",
+  "info": {
+    "singularName": "partner",
+    "pluralName": "partners",
+    "displayName": "Partner"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Logo": {
+      "displayName": "Logo",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.logo"
+    }
+  }
+}

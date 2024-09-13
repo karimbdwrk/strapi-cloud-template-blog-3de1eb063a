@@ -192,6 +192,18 @@ export interface InformationsCni extends Schema.Component {
   };
 }
 
+export interface ComponentsLogo extends Schema.Component {
+  collectionName: 'components_components_logos';
+  info: {
+    displayName: 'Logo';
+    icon: 'picture';
+  };
+  attributes: {
+    title: Attribute.String;
+    image: Attribute.Media<'images'>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -208,6 +220,7 @@ declare module '@strapi/types' {
       'informations.cqp': InformationsCqp;
       'informations.company-info': InformationsCompanyInfo;
       'informations.cni': InformationsCni;
+      'components.logo': ComponentsLogo;
     }
   }
 }
