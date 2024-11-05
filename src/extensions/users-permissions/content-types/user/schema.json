@@ -156,6 +156,10 @@
       "relation": "manyToMany",
       "target": "api::job.job",
       "mappedBy": "wishes"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
