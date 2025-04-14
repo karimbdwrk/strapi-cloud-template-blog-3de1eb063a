@@ -7,7 +7,7 @@ module.exports = {
         to: "krimobadworker@gmail.com",
         from: "karim@badwork.fr",
         subject: "You have a new area",
-        text: `New area UUID : ${result.name}`,
+        text: `New area <b>UUID</b> : ${result.name}`,
       });
     } catch (error) {
       console.log("error email send :", error);
