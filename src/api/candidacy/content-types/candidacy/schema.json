@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidacies",
+  "info": {
+    "singularName": "candidacy",
+    "pluralName": "candidacies",
+    "displayName": "candidacy"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UUID": {
+      "type": "customField",
+      "options": {
+        "uuid-format": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job.job",
+      "inversedBy": "candidacies"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "candidacies"
+    },
+    "isCancelled": {
+      "type": "boolean"
+    }
+  }
+}

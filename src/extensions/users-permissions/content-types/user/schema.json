@@ -160,6 +160,12 @@
     "isDeleted": {
       "type": "boolean",
       "default": false
+    },
+    "candidacies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::candidacy.candidacy",
+      "mappedBy": "users_permissions_users"
     }
   }
 }

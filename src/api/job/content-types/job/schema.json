@@ -67,6 +67,12 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "favorites"
+    },
+    "candidacies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::candidacy.candidacy",
+      "mappedBy": "job"
     }
   }
 }

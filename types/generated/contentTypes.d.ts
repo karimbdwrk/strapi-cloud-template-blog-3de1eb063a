@@ -822,6 +822,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'api::job.job'
     >;
     isDeleted: Attribute.Boolean & Attribute.DefaultTo<false>;
+    candidacies: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::candidacy.candidacy'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -863,6 +868,58 @@ export interface ApiAreaArea extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::area.area', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCandidacyCandidacy extends Schema.CollectionType {
+  collectionName: 'candidacies';
+  info: {
+    singularName: 'candidacy';
+    pluralName: 'candidacies';
+    displayName: 'candidacy';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    UUID: Attribute.UID<
+      undefined,
+      undefined,
+      {
+        'uuid-format': '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$';
+      }
+    > &
+      Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'uuid-format': '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$';
+        }
+      >;
+    job: Attribute.Relation<
+      'api::candidacy.candidacy',
+      'manyToOne',
+      'api::job.job'
+    >;
+    users_permissions_users: Attribute.Relation<
+      'api::candidacy.candidacy',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    isCancelled: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::candidacy.candidacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::candidacy.candidacy',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1066,6 +1123,11 @@ export interface ApiJobJob extends Schema.CollectionType {
       'api::job.job',
       'manyToMany',
       'plugin::users-permissions.user'
+    >;
+    candidacies: Attribute.Relation<
+      'api::job.job',
+      'oneToMany',
+      'api::candidacy.candidacy'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1349,6 +1411,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::area.area': ApiAreaArea;
+      'api::candidacy.candidacy': ApiCandidacyCandidacy;
       'api::department.department': ApiDepartmentDepartment;
       'api::division.division': ApiDivisionDivision;
       'api::global.global': ApiGlobalGlobal;
